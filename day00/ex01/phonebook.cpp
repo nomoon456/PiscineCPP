@@ -41,11 +41,17 @@ void    print_info(Contact contacts[8])
     
     std::cout << "Select Index\n";
     std::getline(std::cin, buf);
+    if (buf.length() > 1 || (buf[0] < 48 || buf[0] > 57))
+    {
+        std::cout << "Index Incorrect\n";
+        return ;
+    }
     c = buf.c_str();
     i = std::atoi(c);
+    printf("%d\n", i);
     if (i < 0 || i > 8)
     {
-        std::cout << "Index Incorrect";
+        std::cout << "Index Incorrect\n";
         return ;
     }
     contacts[i].print();
