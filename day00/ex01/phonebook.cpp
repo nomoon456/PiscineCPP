@@ -94,6 +94,8 @@ void    commands(int *index, Contact contacts[8])
     while (exit == 0)
     {
         std::getline(std::cin, cmd);
+        if (std::cin.eof())
+            cmd = "EXIT";
         if (!cmd.compare("SEARCH"))
         {
             print_contacts(contacts, index);
