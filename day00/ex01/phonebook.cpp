@@ -32,11 +32,29 @@ void print_contacts(Contact contacts[8], int *index)
 	std::cout << std::endl;
 }
 
+void    print_info(Contact contacts[8])
+{
+
+    const char *c;
+    int         i;
+    std::string buf;
+    
+    std::cout << "Select Index\n";
+    std::getline(std::cin, buf);
+    c = buf.c_str();
+    i = std::atoi(c);
+    if (i < 0 || i > 8)
+    {
+        std::cout << "Index Incorrect";
+        return ;
+    }
+    contacts[i].print();
+
+}
+
 void    add_contact(int *index, Contact contacts[8])
 {
-    Contact     hh;
     std::string buf;
-    printf("slt\n\n");
     
     if (*index >= 8)
     {
@@ -45,22 +63,21 @@ void    add_contact(int *index, Contact contacts[8])
     }
     else
     {
-        std::cin.ignore();
         std::cout << "Name:\n";
         std::getline(std::cin, buf);
-        hh.set_name(buf);
+        contacts[*index].set_name(buf);
         std::cout << "Last Nane:\n";
         std::getline(std::cin, buf);
-        hh.set_lastname(buf);
+        contacts[*index].set_lastname(buf);
         std::cout << "Nickname:\n";
         std::getline(std::cin, buf);
-        hh.set_nickname(buf);
+        contacts[*index].set_nickname(buf);
         std::cout << "Phone Number:\n";
         std::getline(std::cin, buf);
-        hh.set_phone(buf);
+        contacts[*index].set_phone(buf);
         std::cout << "Darkest Secret:\n";
         std::getline(std::cin, buf);
-        hh.set_secret(buf);
+        contacts[*index].set_secret(buf);
         if (*index < 8)
         {
             (*index)++;
@@ -80,13 +97,14 @@ void    commands(int *index, Contact contacts[8])
         if (!cmd.compare("SEARCH"))
         {
             print_contacts(contacts, index);
+            print_info(contacts);
         }
         else if (!cmd.compare("ADD"))
             add_contact(index, contacts);
         else if (!cmd.compare("EXIT"))
-        {
-            std::cout << "HBGHFB\n";
             exit = 1;
-        }
+        else
+            std::cout << "Command not found.\n";
+        
     }
 }
