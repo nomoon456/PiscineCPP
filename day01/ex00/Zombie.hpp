@@ -10,7 +10,11 @@ class Zombie {
             ~Zombie(void);
             void    Announce(void);
     private:
+            std::string name;
 
 };
+
+Zombie *newZombie(std::string name);
+void randomChump(std::string name);
 
 #endif
