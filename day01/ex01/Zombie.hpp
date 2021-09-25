@@ -3,24 +3,24 @@
 # include <string>
 # include <iostream>
 # include <iomanip>
-# include <sstream>
 
 class Zombie {
     public:
-            Zombie(std::string name);
-            ~Zombie(void);
+                        Zombie(void);
+                        ~Zombie(void);
             void        Announce(void);
-            void        initName(void);
-            void        initZombie(int N);
+            void        zombieInitName(std::string name);
+            void        hordeInit(int N, Zombie *horde, std::string name);
+            void        newZombie(std::string name);
+            void        zombieSetName(Zombie *zombie, int i);
     private:
-                std::string     zombieName[8];
-                std::string     name;
-                Zombie          *Horde;
+            std::string name;
+            Zombie *_zombieHorde;
+            std::string _zombieName[5];
 
 };
 
-Zombie *newZombie(std::string name);
-Zombie* zombieHorde(int N, std::string name);
-void        initZombie(int N);
+Zombie* zombieHorde( int N, std::string name );
+void    randomChump(std::string name);
 
 #endif

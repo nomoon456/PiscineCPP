@@ -2,5 +2,7 @@
 
 int main(void)
 {
-	zombieHorde(7, "roar");
+	Zombie *zombie = zombieHorde(5, "jean");
+	zombie->Announce();
+	delete [] zombie;
 }
