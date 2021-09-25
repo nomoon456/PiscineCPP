@@ -8,6 +8,6 @@ int main(void)
     std::string*    strptr = &str;
     std::string&    strref = str;
 
-    std::cout << "string ptr = " << strptr;
-    std::cout << "string ref = " << strref;
+    std::cout << "string ptr = " << *strptr << std::endl;
+    std::cout << "string ref = " << strref << std::endl ;
 }
