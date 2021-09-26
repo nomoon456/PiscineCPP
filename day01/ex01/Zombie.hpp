@@ -9,11 +9,12 @@ class Zombie {
                         Zombie(void);
                         ~Zombie(void);
             void        Announce(void);
-            void        zombieInitName(std::string name);
             void        hordeInit(int N, Zombie *horde, std::string name);
             void        newZombie(std::string name);
-            void        zombieSetName(Zombie *zombie, int i);
+            void        zombieSetName(int i);
+            void        annouceHorde();
     private:
+                void        zombieInitName(std::string name);
             std::string name;
             Zombie *_zombieHorde;
             std::string _zombieName[5];
